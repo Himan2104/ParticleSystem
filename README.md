@@ -13,7 +13,7 @@ modifying how the optimizations are handled based on the needs of the user.
 
 Feel free to play around with it, fork it, modify it and maybe break it.
 
-Also, if you are looking to contribute or discuss anything related to simulations
+Also, if you are looking to contribute or discuss anything related to simulations,
 videogames or programming in general do consider joining this [discord](https://discord.gg/5WwyetY).
 
 
