@@ -15,11 +15,11 @@ int main()
 	sf::Vector2f mousePos;
 	sf::Font font;
 	font.loadFromFile("C:/Windows/Fonts/arial.ttf");
-	sf::Text nP;
-	nP.setFont(font);
-	nP.setPosition(10.0f, 10.0f);
-	nP.setCharacterSize(15);
-	sf::Text ctrls(nP);
+	sf::Text stats;
+	stats.setFont(font);
+	stats.setPosition(10.0f, 10.0f);
+	stats.setCharacterSize(15);
+	sf::Text ctrls(stats);
 	ctrls.setPosition(10.0f, currentVideoMode.height - 35.0f);
 	ctrls.setString("[Q]Change Animation Factor\t[X]Toggle Color Randomization\t[Space]Destroy all Particles\n[C]Toggle Controls Visibility\t[S]Toggle Stats Visibility");
 	
@@ -87,7 +87,7 @@ int main()
 			}
 		}
 		
-		nP.setString("FPS : " + std::to_string(1.0f/frameTime) 
+		stats.setString("FPS : " + std::to_string(1.0f/frameTime) 
 			+ "\nParticles : " + std::to_string(particles.size()) 
 			+ "\nAnimation Factor : " + std::to_string(animFac) 
 			+ "\nParticle Density : " + std::to_string(particleDensity)
@@ -95,7 +95,7 @@ int main()
 
 		window.clear();
 		for (int i = 0; i < particles.size(); i++) particles[i]->draw(window);
-		if(vis_S) window.draw(nP);
+		if(vis_S) window.draw(stats);
 		if(vis_C) window.draw(ctrls);
 		window.display();
 	}

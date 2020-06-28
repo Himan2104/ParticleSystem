@@ -11,7 +11,7 @@ const float gravity = 1.0f;
 const unsigned int initialVelocityFactor = 100u;
 const unsigned int frameRateLimit = 90u;
 const sf::VideoMode currentVideoMode = sf::VideoMode(RESOLUTION_X, RESOLUTION_Y, COLORDEPTH);
-const unsigned int particleDensity = 5u;
+const unsigned int particleDensity = 50u;
 const float particleGenerationTimer = 1.0f;
 const sf::Color BaseParticleColor(255u, 0u, 255u);
 
