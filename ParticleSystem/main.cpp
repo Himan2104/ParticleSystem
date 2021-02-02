@@ -14,11 +14,11 @@ int main()
 	sf::Vector2f iniVel;
 	sf::Vector2f mousePos;
 	sf::Font font;
-	font.loadFromFile("C:/Windows/Fonts/arial.ttf");
+	font.loadFromFile("C:/Windows/Fonts/consola.ttf");
 	sf::Text stats;
 	stats.setFont(font);
 	stats.setPosition(10.0f, 10.0f);
-	stats.setCharacterSize(15);
+	stats.setCharacterSize(10);
 	sf::Text ctrls(stats);
 	ctrls.setPosition(10.0f, currentVideoMode.height - 35.0f);
 	ctrls.setString("[Q]Change Animation Factor\t[X]Toggle Color Randomization\t[Space]Destroy all Particles\n[C]Toggle Controls Visibility\t[S]Toggle Stats Visibility");
@@ -37,7 +37,7 @@ int main()
 
 	bool vis_C = true, vis_S = true;
 
-	gclk.restart().asMicroseconds();
+	gclk.restart().asMilliseconds();
 
 	while (window.isOpen())
 	{
@@ -62,19 +62,18 @@ int main()
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::X)) randCol = !randCol;
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) vis_S = !vis_S;
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::C)) vis_C = !vis_C;
-			}
-				
+			}	
 		}
 		
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-			if (gclk.getElapsedTime().asMicroseconds() > particleGenerationTimer)
+			if (gclk.getElapsedTime().asMilliseconds() > particleGenerationTimer)
 				for (int i = 0; i < particleDensity; i++)
 				{
 					velx = (rand() % initialVelocityFactor) - (initialVelocityFactor / 2);
 					vely = (rand() % initialVelocityFactor) - (initialVelocityFactor / 2);
 					iniVel = sf::Vector2f(velx, vely);
 					particles.push_back(new Particle(mousePos, BaseParticleColor, iniVel));
-					gclk.restart().asMicroseconds();
+					gclk.restart().asMilliseconds();
 				}
 		
 		for (int i = 0; i < particles.size(); i++)
